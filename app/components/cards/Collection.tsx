@@ -1,7 +1,7 @@
 const Collection = () => {
   return (
     <>
-      <div className="bg-amber-100 px-3 py-2 rounded-md m-2">
+      <div className="bg-amber-100 px-3 py-2 rounded-md">
         <header className="">
           <h1 className="text-sm capitalize font-light text-gray-600">LUNGI</h1>
         </header>

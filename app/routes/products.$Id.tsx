@@ -1,6 +1,13 @@
-import { json, LoaderFunction } from "@remix-run/node";
+import { json, LoaderFunction, MetaFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import ProductDetails from "~/components/ui/ProductDetails";
+
+export const meta: MetaFunction = ({ data }) => {
+  return {
+    title: data.name || "Product Name",
+    description: data.description || "Product Details page",
+  };
+};
 
 export const loader: LoaderFunction = async ({ params }) => {
   const response = await fetch(

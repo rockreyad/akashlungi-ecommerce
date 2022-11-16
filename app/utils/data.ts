@@ -8,6 +8,7 @@ export type products = {
   dateAdded?: string;
   discount?: number;
   discountPrice?: number;
+  hot?: boolean;
 };
 
 const enum categories {
@@ -40,13 +41,14 @@ export const productData: products[] = [
   },
   {
     id: 2,
-    name: "Product 2",
+    name: "lore dolor sit amet",
     price: 20,
     description: "Product 2 description",
     image:
       "https://rukminim1.flixcart.com/image/416/416/xif0q/lungi/j/g/o/free-light-brown-box-lungi-mr-lungi-original-imaghzrfnt9vzb5p.jpeg?q=70",
     category: categories.LUNGI,
     dateAdded: "2021-01-03",
+    hot: true,
   },
   {
     id: 3,
@@ -69,6 +71,7 @@ export const productData: products[] = [
     dateAdded: "2021-01-04",
     discount: 15,
     discountPrice: 740,
+    hot: true,
   },
   {
     id: 5,

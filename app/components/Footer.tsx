@@ -5,8 +5,8 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div>
-      <footer>
+    <>
+      <footer className="mx-2 mt-10">
         <div className="flex justify-between space-x-5">
           {/* Follow us on social media */}
           <div className="space-y-2">
@@ -46,11 +46,11 @@ const Footer = () => {
           </p>
         </div>
         {/* Copy right */}
-        <div className="bg-gray-500 text-white text-center">
-          <p className="uppercase text-sm font-light">© 2021 project-l</p>
-        </div>
       </footer>
-    </div>
+      <div className="bg-gray-500 text-white text-center">
+        <p className="uppercase text-sm font-light">© 2021 project-l</p>
+      </div>
+    </>
   );
 };
 
