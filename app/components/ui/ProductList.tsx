@@ -1,5 +1,6 @@
+import { Link } from "@remix-run/react";
 import { products } from "~/utils/data";
-import ProductCard from "../cards/ProductCard";
+import Product from "../cards/Product";
 
 type ProductListProps = {
   products: products[];
@@ -8,21 +9,34 @@ type ProductListProps = {
 const ProductList = ({ products }: ProductListProps) => {
   return (
     <>
-      <div className="grid grid-cols-2 gap-2">
-        {products && products.length > 0 ? (
-          <>
+      {products && products.length > 0 ? (
+        <>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 mx-2">
             {products.map((item) => (
-              <ProductCard
-                name={item.name}
-                image={item.image}
-                price={item.price}
-              />
+              <Link
+                className=""
+                to={`product/${item.id}`}
+                key={item.id}
+                prefetch="intent"
+              >
+                <Product
+                  name={item.name}
+                  image={item.image}
+                  price={item.price}
+                  discount={item.discount}
+                  discountPrice={item.discountPrice}
+                />
+              </Link>
             ))}
-          </>
-        ) : (
-          "no prodcuts found!"
-        )}
-      </div>
+          </div>
+        </>
+      ) : (
+        <>
+          <p className="bg-rose-500 px-3 py-2 rounded-md text-white font-semibold text-center">
+            No prodcuts found!
+          </p>
+        </>
+      )}
     </>
   );
 };

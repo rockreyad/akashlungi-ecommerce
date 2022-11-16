@@ -1,5 +1,7 @@
 import { MdAddCircle } from "react-icons/md";
 
+import React from "react";
+
 type ProductDetailsProps = {
   id?: string;
   name: string;
@@ -14,8 +16,23 @@ const ProductDetails = ({
   image,
   description,
 }: ProductDetailsProps) => {
+  const [quantity, setQuantity] = React.useState(1);
+  const handleQuantityChange = (action: string) => {
+    switch (action) {
+      case "increment":
+        if (quantity < 200) {
+          setQuantity(quantity + 1);
+        }
+        break;
+      case "decrement":
+        if (quantity > 1) setQuantity(quantity - 1);
+        break;
+      default:
+        break;
+    }
+  };
   return (
-    <div className="h-screen space-y-5">
+    <div className="space-y-5 md:w-1/2 lg:w-1/3 my-4">
       {/* image and back close button */}
       <header className="w-full h-1/2">
         <img className="h-full w-full object-cover" src={image} alt={name} />
@@ -62,16 +79,19 @@ const ProductDetails = ({
               Quantity
             </label>
             <div className="flex items-center">
-              <button className="bg-gray-200 text-gray-600 text-xs font-medium uppercase tracking-wider rounded-full py-2 px-4 mr-2 active:scale-95 hover:bg-rose-500 hover:text-white">
+              <button
+                onClick={() => handleQuantityChange("decrement")}
+                className="bg-gray-200 text-gray-600 text-xs font-medium uppercase tracking-wider rounded-full py-2 px-4 mr-2 active:scale-95 hover:bg-rose-500 hover:text-white"
+              >
                 -
               </button>
-              <input
-                type="number"
-                min={1}
-                max={200}
-                className="bg-gray-200 text-gray-600 text-xs font-medium uppercase tracking-wider rounded-full py-2 px-4 mr-2"
-              />
-              <button className="bg-gray-200 text-gray-600 text-xs font-medium uppercase tracking-wider rounded-full py-2 px-4 mr-2 active:scale-95 hover:bg-rose-500 hover:text-white">
+              <p className=" text-gray-600 text-xs font-bold uppercase tracking-wider rounded-full py-2 px-4 mx-2">
+                {quantity}
+              </p>
+              <button
+                onClick={() => handleQuantityChange("increment")}
+                className="bg-gray-200 text-gray-600 text-xs font-medium uppercase tracking-wider rounded-full py-2 px-4 mr-2 active:scale-95 hover:bg-rose-500 hover:text-white"
+              >
                 +
               </button>
             </div>

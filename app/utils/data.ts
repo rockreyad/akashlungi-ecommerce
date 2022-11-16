@@ -6,6 +6,8 @@ export type products = {
   image: string;
   category: categories;
   dateAdded?: string;
+  discount?: number;
+  discountPrice?: number;
 };
 
 const enum categories {
@@ -15,21 +17,34 @@ const enum categories {
 
 export const productData: products[] = [
   {
-    id: 1,
+    id: 7,
     name: "A premium lungi",
     price: 100,
-    description: "Product 1 description",
+    description: "Product 7 description",
     image:
-      "https://i.picsum.photos/id/364/200/300.jpg?hmac=p9DQJ7EeVALsbnav-G_BYdU2et5ocKd4Qg_xwXjSc0k",
+      "https://rukminim1.flixcart.com/image/416/416/xif0q/lungi/o/a/a/free-violet-micro-box-lungi-mr-lungi-original-imaggctnrgebk9n8.jpeg?q=70",
     category: categories.LUNGI,
     dateAdded: "2021-01-01",
+  },
+  {
+    id: 1,
+    name: "A premium lungi",
+    price: 1000,
+    description: "Product 1 description",
+    image:
+      "https://rukminim1.flixcart.com/image/416/416/xif0q/lungi/n/w/h/free-blue-stripe-lungi-mr-lungi-original-imaghtvwjqhw6yfu.jpeg?q=70",
+    category: categories.LUNGI,
+    dateAdded: "2021-01-01",
+    discount: 10,
+    discountPrice: 900,
   },
   {
     id: 2,
     name: "Product 2",
     price: 20,
     description: "Product 2 description",
-    image: "https://picsum.photos/200/300",
+    image:
+      "https://rukminim1.flixcart.com/image/416/416/xif0q/lungi/j/g/o/free-light-brown-box-lungi-mr-lungi-original-imaghzrfnt9vzb5p.jpeg?q=70",
     category: categories.LUNGI,
     dateAdded: "2021-01-03",
   },
@@ -39,7 +54,7 @@ export const productData: products[] = [
     price: 60,
     description: "Product 3 description",
     image:
-      "https://i.picsum.photos/id/90/200/300.jpg?hmac=yKaRyhG3EFez3DuYnuPdh29pSCXLc8DDXROYdKQQp30",
+      "https://rukminim1.flixcart.com/image/416/416/l29c9e80/lungi/o/1/o/free-madras-check-lungis-mr-lungi-original-imagdn23zyuzyn2n.jpeg?q=70",
     category: categories.LUNGI,
     dateAdded: "2021-01-02",
   },
@@ -49,9 +64,11 @@ export const productData: products[] = [
     price: 870,
     description: "Product 4 description",
     image:
-      "https://i.picsum.photos/id/34/200/300.jpg?hmac=K076uH4zC5xneqvhRayjS90G00xjPsR7eL_ShGEr6rs",
+      "https://rukminim1.flixcart.com/image/416/416/xif0q/lungi/y/j/s/free-stripe-lungi-mr-lungi-original-imaghxf9ugkyqmhh.jpeg?q=70",
     category: categories.LUNGI,
     dateAdded: "2021-01-04",
+    discount: 15,
+    discountPrice: 740,
   },
   {
     id: 5,
@@ -59,7 +76,7 @@ export const productData: products[] = [
     price: 650,
     description: "Product 5 description",
     image:
-      "https://i.picsum.photos/id/871/200/300.jpg?hmac=wXN1u0NeBnK8vCkjkJXzoTfZn6F0JBzgOpCdmRGXsw0",
+      "https://rukminim1.flixcart.com/image/416/416/xif0q/dhoti/c/p/n/free-rkvpl9-green-tee-original-imagghxzagspyjfb.jpeg?q=70",
     category: categories.LUNGI,
     dateAdded: "2021-01-05",
   },
@@ -68,7 +85,8 @@ export const productData: products[] = [
     name: "Product 6",
     price: 1060,
     description: "Product 6 description",
-    image: "https://picsum.photos/200/300",
+    image:
+      "https://rukminim1.flixcart.com/image/416/416/koudfgw0/lungi/d/k/o/free-cotton-fancy-multi-colors-printed-men-regular-ware-2-meters-original-imag37h9hwztpfcj.jpeg?q=70",
     category: categories.LUNGI,
     dateAdded: "2021-01-06",
   },

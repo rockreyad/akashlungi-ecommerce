@@ -1,3 +1,4 @@
+import React from "react";
 import { MdAddCircle } from "react-icons/md";
 
 type ProductCardProps = {
@@ -6,7 +7,7 @@ type ProductCardProps = {
   price: number;
 };
 
-const ProductCard = ({ name, image, price }: ProductCardProps) => {
+const FeatureProductCard = ({ name, image, price }: ProductCardProps) => {
   return (
     <div className="bg-gray-50 hover:bg-gray-200 p-2 shadow-sm flex flex-col justify-center w-fit rounded-2xl">
       <main>
@@ -27,4 +28,4 @@ const ProductCard = ({ name, image, price }: ProductCardProps) => {
   );
 };
 
-export default ProductCard;
+export default FeatureProductCard;
