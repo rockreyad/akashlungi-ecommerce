@@ -3,7 +3,7 @@ import { RiShoppingCartLine } from "react-icons/ri";
 
 const Navigation = () => {
   return (
-    <nav className="bg-orange-600">
+    <nav className="bg-white">
       <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
         <div className="relative flex items-center justify-between h-16">
           {/* mobile menu button */}
@@ -51,33 +51,49 @@ const Navigation = () => {
           {/* Desktop navigation */}
           <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex-shrink-0 flex items-center">
-              <h1 className="block lg:hidden h-8 w-auto font-extrabold text-2xl">
+              <h1 className="block lg:hidden h-8 w-auto font-extrabold text-2xl font-futura">
                 Project-L
               </h1>
             </div>
             <div className="hidden sm:block sm:ml-6">
-              <div className="flex space-x-4">
+              <div className="flex space-x-4 font-futuralight">
                 <NavLink
                   to={""}
-                  className="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-amber-600 decoration-orange-600  underline underline-offset-8  px-3 py-2 rounded-md text-sm font-medium"
+                      : "text-black hover:underline hover:underline-offset-8  px-3 py-2 rounded-md text-sm font-medium"
+                  }
                 >
                   Home
                 </NavLink>
                 <NavLink
                   to="/products"
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-amber-600 decoration-orange-600  underline underline-offset-8  px-3 py-2 rounded-md text-sm font-medium"
+                      : "text-black hover:underline hover:underline-offset-8  px-3 py-2 rounded-md text-sm font-medium capitalize"
+                  }
                 >
                   Products
                 </NavLink>
                 <NavLink
                   to={"about"}
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium capitalize"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-amber-600 decoration-orange-600  underline underline-offset-8  px-3 py-2 rounded-md text-sm font-medium"
+                      : "text-black hover:underline hover:underline-offset-8  px-3 py-2 rounded-md text-sm font-medium capitalize"
+                  }
                 >
                   About Us
                 </NavLink>
                 <NavLink
                   to={"contact"}
-                  className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium capitalize"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-amber-600 decoration-orange-600  underline underline-offset-8  px-3 py-2 rounded-md text-sm font-medium"
+                      : "text-black hover:underline hover:underline-offset-8  px-3 py-2 rounded-md text-sm font-medium capitalize"
+                  }
                 >
                   Contact Us
                 </NavLink>

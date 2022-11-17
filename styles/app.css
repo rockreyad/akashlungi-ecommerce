@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: "Futura";
+  src: local(""), url("/fonts/Futura-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Futura Light";
+  src: local(""), url("/fonts/Futura-Light.otf") format("opentype");
+}
+@font-face {
+  font-family: "Futura Condensed";
+  src: local(""), url("/fonts/Futura-Condensed.ttf") format("truetype");
+}
