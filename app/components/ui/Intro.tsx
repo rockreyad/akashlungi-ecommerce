@@ -10,21 +10,21 @@ const Intro = () => {
           className="w-full h-full object-cover"
         />
 
-        <div className="absolute bottom-10 md:bottom-32 w-full flex justify-start md:items-center mx-auto px-6 md:px-10 lg:px-40">
-          <div className="flex flex-col items-start  space-y-4">
-            <div className="space-y-4 text-white   font-futura ">
-              <h1 className="text-4xl">Wear In winter Wonderland? Check.</h1>
-              <p className="text-sm font-medium tracking-widest leading-relaxed">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Quisquam, voluptate.
-              </p>
-            </div>
+        <div className="absolute bottom-10 md:bottom-32 lg:bottom-40 w-full flex justify-start md:items-center mx-auto px-6 md:px-10 lg:px-10 xl:px-56">
+          <div className="flex flex-col items-start  space-y-4 lg:space-y-6 text-white">
+            <h1 className="text-xl sm:text-4xl lg:text-5xl font-futura leading-5">
+              Make It A Naturally Gifted Holiday
+            </h1>
+            <p className="font-futuralight sm:font-futura text-xs sm:text-base tracking-widest leading-relaxed">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
+              voluptate.
+            </p>
 
-            <div className="space-x-5   font-futuraCondensed">
-              <button className="bg-gray-100 px-6 py-3 font-bold text-xs text-gray-900 tracking-[0.15rem] hover:bg-rose-400 hover:text-gray-100">
+            <div className="space-x-5 font-futuraCondensed">
+              <button className="bg-gray-100 px-3 py-2 sm:px-6 sm:py-3 lg:px-6 lg:py-4 font-bold text-xs lg:text-base text-gray-900 tracking-[0.15rem] hover:bg-rose-400 hover:text-gray-100 rounded">
                 SHOP LUNGI
               </button>
-              <button className="bg-gray-100 px-6 py-3 font-bold text-xs text-gray-900 tracking-[0.15rem] hover:bg-rose-400 hover:text-gray-100">
+              <button className="bg-gray-100 px-3 py-2 sm:px-6 sm:py-3 lg:px-6 lg:py-4 font-bold text-xs lg:text-base text-gray-900 tracking-[0.15rem] hover:bg-rose-400 hover:text-gray-100 rounded">
                 SHOP SHAREE
               </button>
             </div>

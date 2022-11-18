@@ -5,25 +5,38 @@ type ProductCardProps = {
   name: string;
   image: string;
   price: number;
+  shortDesc?: string;
 };
 
-const FeatureProductCard = ({ name, image, price }: ProductCardProps) => {
+const FeatureProductCard = ({
+  name,
+  image,
+  price,
+  shortDesc,
+}: ProductCardProps) => {
   return (
-    <div className="bg-gray-50 hover:bg-gray-200 p-2 shadow-sm flex flex-col justify-center w-fit rounded-2xl">
-      <main>
-        <img className="rounded-3xl w-44" src={image} alt={name} />
-      </main>
-      <footer className="flex justify-between items-center mt-2 px-3">
-        <div>
-          <h1 className="text-sm font-medium text-black capitalize">{name}</h1>
-          <p className="text-gray-500 text-sm font-medium">
-            <span>$</span>
-            {price}
+    <div className="">
+      <div className="bg-rose-600 p-16 flex flex-col items-center space-y-4 w-full">
+        <img src={image} alt={name} className="w-24" />
+        <p className="font-futuraCondensed text-lg text-white text-center space-y-3">
+          <h6 className="text-4xl">30% Off</h6>
+          <h6 className="tracking-widest">
+            With code <span className="font-futura">"CUPON"</span>
+          </h6>
+        </p>
+      </div>
+
+      <div className="bg-white px-4 w-full space-y-10 flex flex-col py-6">
+        <div className="divide-y">
+          <h1 className="text-lg text-gray-700 font-semibold py-2">{name}</h1>
+          <p className="text-sm text-gray-500 py-2 leading-tight tracking-tighter">
+            Lorem ipsum,Lorem .
           </p>
         </div>
-
-        <MdAddCircle className="text-rose-400 active:text-black text-3xl" />
-      </footer>
+        <button className="bg-gray-800 text-white font-futura text-xs text-center py-3 uppercase rounded-sm">
+          shop now
+        </button>
+      </div>
     </div>
   );
 };

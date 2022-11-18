@@ -9,6 +9,7 @@ export type products = {
   discount?: number;
   discountPrice?: number;
   hot?: boolean;
+  shortDesc?: string;
 };
 
 const enum categories {
@@ -49,6 +50,7 @@ export const productData: products[] = [
     category: categories.LUNGI,
     dateAdded: "2021-01-03",
     hot: true,
+    shortDesc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
   },
   {
     id: 3,

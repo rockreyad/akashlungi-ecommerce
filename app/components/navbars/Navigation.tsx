@@ -1,4 +1,5 @@
 import { NavLink } from "@remix-run/react";
+import { BsFillTelephoneFill } from "react-icons/bs";
 import { RiShoppingCartLine } from "react-icons/ri";
 
 const Navigation = () => {
@@ -104,6 +105,15 @@ const Navigation = () => {
           {/* Desktop Cart Button */}
           <div className="hidden sm:ml-6 mr-4 sm:block">
             <div className="inline-flex relative items-center">
+              <a
+                href="tel:+8801312-085808"
+                className="inline-flex items-center text-[.6rem] lg:text-xs space-x-2 mx-2"
+              >
+                <BsFillTelephoneFill className="" />
+                <p className="font-futura capitalize">
+                  sales - 01312 085808 (10AM-9PM)
+                </p>
+              </a>
               <RiShoppingCartLine className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white text-3xl" />
               <div className="inline-flex absolute -top-2 -right-3 justify-center items-center w-6 h-6 text-xs font-bold text-white bg-gray-500 bg-opacity-80 rounded-xl">
                 2
