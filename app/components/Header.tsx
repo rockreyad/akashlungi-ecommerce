@@ -1,5 +1,6 @@
 import React from "react";
 import Navigation from "./navbars/Navigation";
+import TopHeader from "./navbars/TopHeader";
 
 const Header = () => {
   return (
@@ -9,7 +10,8 @@ const Header = () => {
           Welcome to My Store, Enjoy the products
         </h6>
       </header>
-      <Navigation />
+      <TopHeader />
+      {/* <Navigation /> */}
     </>
   );
 };

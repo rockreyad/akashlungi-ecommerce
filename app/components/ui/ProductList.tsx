@@ -5,7 +5,7 @@ import Product from "../cards/Product";
 type ProductListProps = {
   products: products[];
 };
-
+const imageURL = process.env.STRAPI_UPLOAD_URL_BASE;
 const ProductList = ({ products }: ProductListProps) => {
   return (
     <>
@@ -15,16 +15,15 @@ const ProductList = ({ products }: ProductListProps) => {
             {products.map((item) => (
               <Link
                 className=""
-                to={`products/${item.id}`}
+                to={`/products/${item.id}`}
                 key={item.id}
                 prefetch="intent"
               >
                 <Product
-                  name={item.name}
-                  image={item.image}
-                  price={item.price}
-                  discount={item.discount}
-                  discountPrice={item.discountPrice}
+                  name={item.attributes.name}
+                  image={imageURL + item.attributes.image1.data.attributes.url}
+                  price={item.attributes.price}
+                  discount={item.attributes.discount}
                 />
               </Link>
             ))}

@@ -16,10 +16,10 @@ const FeatureProductCard = ({
 }: ProductCardProps) => {
   return (
     <div className="">
-      <div className="bg-rose-600 p-16 flex flex-col items-center space-y-4 w-full">
-        <img src={image} alt={name} className="w-24" />
+      <div className="bg-rose-600 p-2 md:p-16 flex flex-col items-center space-y-4 w-full">
+        <img src={image} alt={name} className="w-10 md:w-24" />
         <p className="font-futuraCondensed text-lg text-white text-center space-y-3">
-          <h6 className="text-4xl">30% Off</h6>
+          <h6 className="text-2xl md:text-4xl">30% Off</h6>
           <h6 className="tracking-widest">
             With code <span className="font-futura">"CUPON"</span>
           </h6>

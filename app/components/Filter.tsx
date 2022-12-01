@@ -20,11 +20,11 @@ const Filter = () => {
           <TiStarFullOutline className="text-8xl text-cyan-500 absolute items-center" />
           <div className="flex flex-col relative -space-y-3 text-gray-200 top-1 items-center">
             <p className="text-sm font-bold">
-              <span>$</span>250
+              <span>$</span>350
             </p>
             <span>-</span>
             <p className="text-sm font-bold">
-              <span>$</span>350
+              <span>$</span>750
             </p>
           </div>
         </div>
@@ -32,11 +32,11 @@ const Filter = () => {
           <TiStarFullOutline className="text-8xl text-cyan-500 absolute items-center" />
           <div className="flex flex-col relative -space-y-3 text-gray-200 top-1 items-center">
             <p className="text-sm font-bold">
-              <span>$</span>250
+              <span>$</span>750
             </p>
             <span>-</span>
             <p className="text-sm font-bold">
-              <span>$</span>350
+              <span>$</span>1110
             </p>
           </div>
         </div>

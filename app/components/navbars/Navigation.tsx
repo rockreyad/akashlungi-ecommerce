@@ -1,4 +1,4 @@
-import { NavLink } from "@remix-run/react";
+import { Link, NavLink } from "@remix-run/react";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { RiShoppingCartLine } from "react-icons/ri";
 
@@ -114,34 +114,24 @@ const Navigation = () => {
                   sales - 01312 085808 (10AM-9PM)
                 </p>
               </a>
-              <RiShoppingCartLine className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white text-3xl" />
-              <div className="inline-flex absolute -top-2 -right-3 justify-center items-center w-6 h-6 text-xs font-bold text-white bg-gray-500 bg-opacity-80 rounded-xl">
-                2
-              </div>
+              <Link to="/cart" className="inline-flex items-center">
+                <RiShoppingCartLine className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white text-3xl" />
+                <div className="inline-flex absolute -top-2 -right-3 justify-center items-center w-6 h-6 text-xs font-bold text-white bg-gray-500 bg-opacity-80 rounded-xl">
+                  2
+                </div>
+              </Link>
             </div>
           </div>
 
           {/* Mobile menu, show/hide based on menu state. */}
           <div className="block sm:hidden">
             <div className="flex items-center">
-              <div className="ml-3 relative">
-                <div>
-                  <button
-                    type="button"
-                    className="max-w-xs bg-gray-800 rounded-full flex items-center text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                    id="user-menu"
-                    aria-expanded="false"
-                    aria-haspopup="true"
-                  >
-                    <span className="sr-only">Open user menu</span>
-                    <img
-                      className="h-8 w-8 rounded-full"
-                      src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
-                      alt=""
-                    />
-                  </button>
+              <Link to="/cart" className="inline-flex items-center">
+                <RiShoppingCartLine className="bg-gray-800 p-1 rounded-full text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white text-3xl" />
+                <div className="inline-flex absolute top-3 -right-1 justify-center items-center w-3 h-3 text-[9px] font-bold text-white bg-gray-500 bg-opacity-80 rounded-xl">
+                  2
                 </div>
-              </div>
+              </Link>
             </div>
           </div>
         </div>
