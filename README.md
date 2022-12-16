@@ -1,3 +1,8 @@
+# Screenshot
+
+HomePage
+<img src='screenshot/image1.png' alt='Homepage'/>
+
 # Welcome to Remix!
 
 - [Remix Docs](https://remix.run/docs)

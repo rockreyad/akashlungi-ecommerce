@@ -42,12 +42,14 @@ const Header = () => {
   const { toggleSidebar } = useSidebarProvider();
   const { cart } = useCartProvider();
 
+  const [collapse, setCollapse] = React.useState(false);
+
   return (
     <>
       <header
         className={`${
           isActive ? "bg-white bg-opacity-90 py-4 shadow-md" : "bg-none py-6"
-        } fixed w-full z-10 transition-all`}
+        } fixed w-full z-10 transition-all flex-col md:block`}
       >
         <div className="container mx-auto flex items-center justify-between h-full">
           {/* logo */}
@@ -58,13 +60,13 @@ const Header = () => {
               className="flex space-x-2 items-center pr-4 md:pr-10"
             >
               <img className="w-4 md:w-9" src={Logo} alt="Lungi" />
-              <h1 className="font-semibold md:font-extrabold text-xs md:text-xl font-futuralight">
+              <h1 className="font-semibold md:font-extrabold text- md:text-xl font-futuralight">
                 {projectName}
               </h1>
             </Link>
 
             {/* Navigation Links */}
-            <div className="flex space-x-4 md:space-x-10 font-futuralight">
+            <div className="hidden md:block space-x-4 md:space-x-10 font-futuralight">
               {links.map((link, index) => (
                 <NavLink
                   key={index}
@@ -106,8 +108,53 @@ const Header = () => {
                 {cart.length}
               </div>
             </div>
+            <button
+              data-collapse-toggle="navbar-default"
+              type="button"
+              className="inline-flex items-center p-2 ml-3 text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              aria-controls="navbar-default"
+              onClick={() => setCollapse(!collapse)}
+            >
+              <span className="sr-only">Open main menu</span>
+              <svg
+                className="w-6 h-6"
+                aria-hidden="true"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </button>
           </div>
         </div>
+        {
+          // Mobile Menu
+          collapse ? ( // if collapse is true then show the menu
+            <div className="w-full md:hidden md:w-auto" id="navbar-default">
+              <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                {links.map((link, index) => (
+                  <NavLink
+                    key={index}
+                    to={link.url}
+                    onClick={() => setCollapse(!collapse)}
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-amber-600 decoration-orange-600  underline underline-offset-8   rounded-md text-sm font-medium"
+                        : "text-black hover:underline hover:underline-offset-8   rounded-md text-sm font-medium"
+                    }
+                  >
+                    {link.label}
+                  </NavLink>
+                ))}
+              </ul>
+            </div>
+          ) : null
+        }
       </header>
     </>
   );
