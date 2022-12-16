@@ -1,27 +1,59 @@
 import { checkEnvVars, checkStatus } from "./errorHandling";
-export type products = {
-  id?: number;
+
+export type ProductImageType = {
+  id: 1;
+  attributes: {
+    name: string;
+    caption: string;
+    width: number;
+    height: number;
+    formats: {
+      thumbnail: {
+        name: string;
+        hash: string;
+        ext: string;
+        mime: string;
+        width: number;
+        height: number;
+        size: number;
+        url: string;
+      };
+      small: {
+        name: string;
+        hash: string;
+        ext: string;
+        mime: string;
+        width: number;
+        height: number;
+        size: number;
+        url: string;
+      };
+    };
+    hash: string;
+    ext: string;
+    mime: string;
+    size: number;
+    url: string;
+    provider: string;
+  };
+};
+export type ProductType = {
+  id: number;
   attributes: {
     name: string;
     description: string;
-    shortDesc?: string;
-    image1: {
-      data: {
-        attributes: {
-          url: string;
-        };
-      };
-    };
-    image2: string;
+    shortDesc: string;
     price: number;
-    category: categories;
-    dateAdded?: string;
-    discount?: number;
-    type?: string;
-    createAt?: string;
-    updatedAt?: string;
-    publishedAt?: string;
+    discount: number;
+    type: string;
+    images: {
+      data: ProductImageType[];
+    };
   };
+  quantity: number;
+};
+export type ProductsType = {
+  data: ProductType[];
 };
 
 const enum categories {
@@ -120,7 +152,7 @@ export async function getProducts() {
     }
   );
   checkStatus(res);
-  const products: products[] = await res.json();
+  const products: ProductsType = await res.json();
 
   // if (products.error) {
   //   console.log("Error", products.error);

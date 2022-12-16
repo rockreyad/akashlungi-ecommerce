@@ -1,19 +1,17 @@
 import { LoaderFunction } from "@remix-run/node";
 import { useLoaderData } from "@remix-run/react";
 import ProductList from "~/components/ui/ProductList";
-import { getProducts, products } from "~/utils/data";
+import { getProducts, ProductsType } from "~/utils/data";
 
-type res = {
-  data: products[];
-};
 export const loader: LoaderFunction = async () => {
-  const response: res = await getProducts();
+  const response = await getProducts();
   console.log("products list");
-  console.log(response.data);
-  return response.data;
+  console.log(response);
+  return response;
 };
 const ProductsIndexRoute = () => {
-  const productsData = useLoaderData();
+  const productsData = useLoaderData<ProductsType>();
+  console.log("products list", productsData);
   return <ProductList products={productsData} />;
 };
 

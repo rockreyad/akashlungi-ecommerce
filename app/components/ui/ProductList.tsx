@@ -1,31 +1,21 @@
 import { Link } from "@remix-run/react";
-import { products } from "~/utils/data";
+import { config } from "~/config";
+import { ProductsType } from "~/utils/data";
 import Product from "../cards/Product";
 
 type ProductListProps = {
-  products: products[];
+  products: ProductsType;
 };
-const imageURL = process.env.STRAPI_UPLOAD_URL_BASE;
+const imageURL = config.STRAPI_UPLOAD_URL_BASE;
 const ProductList = ({ products }: ProductListProps) => {
+  console.log("products list", products.data?.length);
   return (
     <>
-      {products && products.length > 0 ? (
+      {products.data?.length ? (
         <>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2">
-            {products.map((item) => (
-              <Link
-                className=""
-                to={`/products/${item.id}`}
-                key={item.id}
-                prefetch="intent"
-              >
-                <Product
-                  name={item.attributes.name}
-                  image={imageURL + item.attributes.image1.data.attributes.url}
-                  price={item.attributes.price}
-                  discount={item.attributes.discount}
-                />
-              </Link>
+            {products.data?.map((item) => (
+              <Product product={item} key={item.id} />
             ))}
           </div>
         </>

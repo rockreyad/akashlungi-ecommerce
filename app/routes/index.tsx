@@ -2,67 +2,39 @@ import { LoaderFunction } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 import Banner from "~/components/cards/Banner";
 import Collection from "~/components/cards/Collection";
-import FeatureProductCard from "~/components/cards/FeatureProductCard";
-import Product from "~/components/cards/Product";
 import Filter from "~/components/Filter";
-import Footer from "~/components/Footer";
-import TopHeader from "~/components/navbars/TopHeader";
 import BestSelling from "~/components/ui/BestSelling";
 import Intro from "~/components/ui/Intro";
-import ProductCart from "~/components/ui/ProductCart";
-import ProductDetails from "~/components/ui/ProductDetails";
 import ProductList from "~/components/ui/ProductList";
 import QuickLyAvilable from "~/components/ui/QuickLyAvilable";
-import { getProducts, products } from "~/utils/data";
+import { getProducts, ProductsType } from "~/utils/data";
 
-export const loader: LoaderFunction = async (): Promise<products[]> => {
+export const loader: LoaderFunction = async (): Promise<ProductsType> => {
   const response = await getProducts();
-  return response.data as products[];
+  return response;
 };
 
 export const meta = () => {
   return {
-    title: "Products",
+    title: "HomePage of E-commerce",
     description: "Products",
   };
 };
-// export default function Index() {
-//   const data = useLoaderData();
-//   return (
-//     <>
-//       <Intro />
-//       <div className="space-y-10 mx-2 py-5 bg-slate-50">
-//         {/* <Banner /> */}
-//         <BestSelling />
-//         <QuickLyAvilable />
-//         <Collection />
-//         <Filter />
-
-//         <ProductList products={data} />
-//       </div>
-//     </>
-//   );
-// }
 
 export default function IndexRoute() {
+  const products = useLoaderData<ProductsType>();
   return (
     <div>
       {/* Hero Banner */}
       <Intro />
-      <div className="px-12 py-32 text-center text-gray-200 bg-gray-800">
-        <h1 className="text-5xl text-gray-100">New arrivals are here</h1>
-        <p className="px-8 mt-2 font-semibold text-gray-300">
-          The new arrivals have, well, newly arrived. Check out the latest
-          options from our summer small-batch release while they're still in
-          stock.
-        </p>
-        <Link
-          to="/products"
-          className="inline-block px-6 py-2 mt-8 text-sm font-semibold text-gray-700 transition duration-300 bg-gray-100 rounded-md hover:bg-white hover:text-gray-900 hover:scale-110 color"
-        >
-          Shop New Arrivals
-        </Link>
+      <QuickLyAvilable />
+      <div className="grid grid-cols-2 space-x-2 px-2 mt-10">
+        <Banner />
+        <Collection />
       </div>
+      <BestSelling products={products} />
+      <Filter />
+      <ProductList products={products} />
     </div>
   );
 }

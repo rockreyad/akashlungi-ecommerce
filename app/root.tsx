@@ -10,11 +10,12 @@ import {
   ScrollRestoration,
   useCatch,
 } from "@remix-run/react";
-import Header from "./components/Header";
 import Footer from "./components/Footer";
 import ThemeProvider from "./context/ThemeContext";
+import SidebarProvider from "./context/SidebarContext";
 
 import Layout from "./layouts";
+import CartProvider from "./context/CartContext";
 
 export const links: LinksFunction = () => {
   return [{ rel: "stylesheet", href: styles }];
@@ -29,11 +30,15 @@ export const meta: MetaFunction = () => ({
 export default function App() {
   return (
     <Document>
-      <Layout>
-        {/* <ThemeProvider> */}
-        <Outlet />
-        {/* </ThemeProvider> */}
-      </Layout>
+      <CartProvider>
+        <SidebarProvider>
+          <Layout>
+            {/* <ThemeProvider> */}
+            <Outlet />
+            {/* </ThemeProvider> */}
+          </Layout>
+        </SidebarProvider>
+      </CartProvider>
     </Document>
   );
 }
@@ -86,7 +91,7 @@ export function ErrorBoundary({ error }: { error: Error }) {
   return (
     <Document title="Uh-oh!">
       <Layout>
-        <div className="error-container text-red-500">
+        <div className="container mx-auto px-4 text-semibold bg-rose-100 text-red-500 mt-10 rounded-md">
           <h1>App Error</h1>
           <pre>{error.message}</pre>
         </div>
